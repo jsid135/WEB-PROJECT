@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Healthcare Advisor</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        header {
+            background-color: #008080;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5em;
+            font-weight: bold;
+        }
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+        #hero {
+            padding: 2em;
+            border-radius: 8px;
+            margin-bottom: 2em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('dp.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #008080;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        #hero h2 {
+            margin-bottom: 0.5em;
+            color: #008080;
+        }
+        #hero p{
+            margin-bottom: 1em;
+            color: #008080;
+        }
+        #hero button {
+            background-color: #008080;
+            color: white;
+            padding: 1em 2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 1em;
+        }
+        #health-tips {
+            background-color: white;
+            padding: 1.5em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2em;
+            display: flex; /* Enable flexbox for layout */
+            flex-wrap: wrap;  /* Allow items to wrap to multiple rows */
+            justify-content: space-around; /* Distribute items evenly */
+            align-items: center; /* Vertically center items */
+        }
+        #health-tips h2{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        #health-tips .tip-item {
+            /*background-color: #f8f8f8;  Remove background, so images are more prominent */
+            padding: 1em;
+            border-radius: 8px;
+            /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  Remove shadow for cleaner look*/
+            margin-bottom: 1em;
+            width: 30%; /* Adjust as needed for 3 columns. */
+            min-width: 200px; /* Ensure a minimum width */
+            text-align: center; /* Center content within each tip item */
+            display: flex;
+            flex-direction: column; /* Stack image and text vertically */
+            align-items: center;
+        }
+        #health-tips .tip-item img{
+            width: 100%;
+            height: 150px; /* give a fixed height */
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.5em;
+
+        }
+
+        #services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            background-image: url('health-information.jpg');
+            background-size: cover;
+            background-position: center;
+            padding-top: 2em;
+            padding-bottom: 2em;
+            border-radius: 8px;
+            margin-bottom: 2em;
+        }
+        #services h2{
+             color: #008080;
+             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+             width: 100%;
+             text-align: center;
+        }
+
+        .service {
+            background-color:#008080);
+            padding: 1.5em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            margin-bottom: 1em;
+            min-width: 250px;
+            text-align: left;
+        }
+        .service img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.5em;
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #008080;
+            color: white;
+        }
+        #tip-container {
+            padding-top: 20px;
+        }
+        .hero-image {
+            display: none;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1em;
+        }
+
+        @media (max-width: 768px) {
+            .hero-image {
+                max-width: 100%;
+            }
+            #services {
+                flex-direction: column;
+                align-items: center;
+            }
+            .service {
+                width: 80%;
+            }
+             #health-tips {
+                flex-direction: column;
+                align-items: center;
+            }
+            .tip-item{
+               width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>E-Healthcare Advisor</h1>
+        <nav>
+            <a href="login.html" >Home</a>
+            <a href="doc.html"> Specializations</a>
+            <a href="art.html"> Articles</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h2>Your Online Health Companion</h2>
+            <p>Your first step to quality healthcare.</p>
+            <a href="app.html"><button> Book Appointments</button></a>
+        </section>
+
+        <section id="health-tips">
+            <h2>Health is Wealth</h2>
+            <div class = "tip-item">
+                <img src="bd.jpg" alt="Balanced Meal">
+                <p>Balanced Meal</p>
+            </div>
+             <div class = "tip-item">
+                <img src="medit.jpg" alt="Meditation">
+                <p>Meditation</p>
+            </div>
+             <div class = "tip-item">
+                <img src="meds.jpg" alt="Medicines">
+                <p>Medicines</p>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="service">
+                <img src="con.jpg" alt="Online Consultation">
+                <h3> Understand Consultations</h3>
+                <p> We aim to make you feel comfortable in understanding your symtoms and help you find what specialist you need</p>
+            </div>
+            <div class="service">
+                <img src="app.jpg" alt="Appointment Booking">
+                <h3>Appointment Booking</h3>
+                <p>Book appointments with specialists.</p>
+            </div>
+            <div class="service">
+                <img src="tips.jpg" alt="Health Information">
+                <h3>Health Information</h3>
+                <p>Access reliable health articles and resources.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 E-Healthcare Advisor</p>
+    </footer>
+
+    <script>
+        document.getElementById('findDoctorButton').addEventListener('click', function() {
+            window.open('find_doctor.html', '_blank');
+        });
+
+        const healthTips = [
+            "Drink plenty of water throughout the day.",
+            "Get at least 7-8 hours of sleep each night.",
+            "Eat a balanced diet with fruits and vegetables.",
+            "Engage in regular physical activity.",
+            "Take breaks from screens to rest your eyes.",
+            "Practice mindfulness and stress-reduction techniques.",
+            "Wash your hands frequently to prevent infections."
+        ];
+
+        function displayRandomTip() {
+            const randomIndex = Math.floor(Math.random() * healthTips.length);
+            document.getElementById('healthTip').textContent = healthTips[randomIndex];
+        }
+
+
+
+        
+
+    </script>
+</body>
+</html>

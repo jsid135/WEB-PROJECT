@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #008080;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+        h2 {
+            color: #0066cc;
+            margin-bottom: 1em;
+        }
+        #appointment-form {
+            background-color: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .form-group {
+            margin-bottom: 1.5em;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+            color: #008080;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 0.8em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23008080" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path d="M2 0L0 2h4z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 0.7em top 50%;
+            background-size: 0.65em auto;
+        }
+        select::-ms-expand {
+            display: none;
+        }
+        button {
+            background-color: #008080;
+            color: white;
+            padding: 0.8em 1.5em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            margin-top: 1em;
+        }
+        button:hover {
+            background-color: #005e5e;
+        }
+        @media (max-width: 768px) {
+            #appointment-form {
+                padding: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Book an Appointment</h1>
+    </header>
+    <main>
+        <h2>Fill out the form to book your appointment:</h2>
+        <form id="appointment-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Appointment Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+             <div class="form-group">
+                <label for="place">Preferred Place:</label>
+                <input type="text" id="place" name="place" placeholder="Hospital/Clinic Name" required>
+            </div>
+            <div class="form-group">
+                <label for="specialization">Specialization:</label>
+                <select id="specialization" name="specialization">
+                    <option value="">Select Specialization</option>
+                    <option value="general">General Medicine</option>
+                    <option value="cardiology">Cardiology</option>
+                    <option value="dermatology">Dermatology</option>
+                    <option value="gastroenterology">Gastroenterology</option>
+                    <option value="neurology">Neurology</option>
+                    <option value="orthopedics">Orthopedics</option>
+                    <option value="pediatrics">Pediatrics</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="doctor">Preferred Doctor:</label>
+                <select id="doctor" name="doctor">
+                    <option value="">Select Doctor</option>
+                </select>
+            </div>
+            <button type="submit">Book Appointment</button>
+        </form>
+    </main>
+    <script>
+        const specializationSelect = document.getElementById('specialization');
+        const doctorSelect = document.getElementById('doctor');
+
+        const doctors = {
+            general: [
+                { name: "Dr. Smith", id: "smith" },
+                { name: "Dr. Jones", id: "jones" },
+                { name: "Dr. Brown", id: "brown"}
+            ],
+            cardiology: [
+                { name: "Dr. Heart", id: "heart" },
+                { name: "Dr. Vessel", id: "vessel" }
+            ],
+            dermatology: [
+                { name: "Dr. Skin", id: "skin" },
+                { name: "Dr. Pimple", id: "pimple" }
+            ],
+            gastroenterology: [
+                { name: "Dr. Gut", id: "gut" },
+                { name: "Dr.Digest", id: "digest"}
+            ],
+            neurology: [
+                {name: "Dr. Brain", id: "brain"},
+                {name: "Dr.Nerve", id:"nerve"}
+            ],
+            orthopedics: [
+                {name:"Dr.Bone", id:"bone"},
+                {name:"Dr.Joint", id:"joint"}
+            ],
+            pediatrics: [
+               {name: "Dr.Child", id:"child"},
+                {name: "Dr.Infant", id:"infant"}
+            ]
+        };
+
+        specializationSelect.addEventListener('change', () => {
+            const selectedSpecialization = specializationSelect.value;
+            doctorSelect.innerHTML = '<option value="">Select Doctor</option>';
+            if (selectedSpecialization) {
+                const availableDoctors = doctors[selectedSpecialization];
+                availableDoctors.forEach(doctor => {
+                    const option = document.createElement('option');
+                    option.value = doctor.id;
+                    option.textContent = doctor.name;
+                    doctorSelect.appendChild(option);
+                });
+            }
+        });
+
+        document.getElementById('appointment-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const place = document.getElementById('place').value;
+            const specialization = specializationSelect.value;
+            const doctor = doctorSelect.value;
+
+            if (specialization && doctor) {
+                alert(`Appointment booked for ${name} on ${date} at ${place} with ${doctorSelect.options[doctorSelect.selectedIndex].text}.`);
+            } else {
+                alert('Please select a specialization and doctor.');
+            }
+        });
+    </script>
+</body>
+</html>

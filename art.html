@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles and Reviews</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #008080;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+        h2 {
+            color: #0066cc;
+            margin-bottom: 1em;
+        }
+        #articles-section {
+            background-color: white;
+            padding: 1.5em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2em;
+        }
+        #articles-section .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1em;
+        }
+        #articles-section button {
+            background-color: #008080;
+            color: white;
+            padding: 0.8em 1.5em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            margin: 0 1em;
+        }
+        #articles-section button:hover {
+            background-color: #005e5e;
+        }
+
+        #reviews-section {
+            padding: 2em;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background-color: #e0f2fe;
+        }
+        #reviews-section h3{
+            color: #008080;
+            margin-bottom: 1.5em;
+            text-align: center;
+            font-size: 1.4em;
+            letter-spacing: 0.05em;
+        }
+        #reviews-section .review-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2em;
+            margin-top: 2em;
+        }
+        .review-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5em;
+            width: 300px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 1em;
+            color: #555;
+        }
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            margin-top: 1.5em;
+        }
+        .reviewer-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .reviewer-info div {
+            font-weight: bold;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            #articles-section .button-container {
+                flex-direction: column;
+            }
+            #articles-section button {
+                margin: 0.5em 0;
+                width: 100%;
+            }
+            .review-card {
+                width: 90%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+             #reviews-section .review-container{
+                gap: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Community</h1>
+    </header>
+    <main>
+        <section id="articles-section">
+            <h2>Articles</h2>
+            <div class="button-container">
+                <button id="read-article">Read Article</button>
+                <button id="write-article">Write Article</button>
+            </div>
+            <p>Explore articles written by our community members and share your own insights!</p>
+        </section>
+
+        <section id="reviews-section">
+            <h3>What Our Users Say</h3>
+            <div class="review-container">
+                <div class="review-card">
+                    <p>An Amazing platform to assess writings on medicines</p>
+                    <div class="reviewer-info">
+                        <img src="face.jpg" alt="Reviewer 1">
+                        <div>
+                            Mike V<br>
+                            Senior Designer
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p>An Amazing platform to assess writings on medicines</p>
+                    <div class="reviewer-info">
+                        <img src="face.jpg" alt="Reviewer 2">
+                        <div>
+                            Nikhil Anantharaman<br>
+                            Medical Enthuasist
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <p> An Amazing platform to assess writings on medicines </p>
+                    <div class="reviewer-info">
+                        <img src="face.jpg" alt="Reviewer 3">
+                        <div>
+                            Priya R<br>
+                            Dietian
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <button style="margin-top: 2em;">See More</button>
+        </section>
+    </main>
+    <script>
+        document.getElementById('read-article').addEventListener('click', () => {
+            alert('Redirecting to the articles page...');
+        });
+
+        document.getElementById('write-article').addEventListener('click', () => {
+            alert('Redirecting to the article submission page...');
+        });
+    </script>
+</body>
+</html>
